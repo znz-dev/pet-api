@@ -20,4 +20,12 @@ class User < ApplicationRecord
     user = User.find_by_id(id)
     user
   end
+
+  def self.login_user_by_params(params)
+    user = nil
+    username, password = params.values_at(:username, :password)
+    user = User.find_by_username(username)
+    user = nil if user.password != password
+    user
+  end
 end

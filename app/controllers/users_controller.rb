@@ -6,4 +6,8 @@ class UsersController < ApplicationController
   def show
     @user = User.query_user_by_params(params)
   end
+
+  def login
+    @user = User.login_user_by_params(params)
+  end
 end
